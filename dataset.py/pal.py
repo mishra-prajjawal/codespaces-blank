@@ -1,8 +1,7 @@
 # We are going to make an AI that can complete sentences for us.
 import re
 import pickle 
-import numpy as np
-with open("/workspaces/codespaces-blank/data_main.txt", "r") as f:
+with open("/workspace/codespaces-blank/codespaces-blank/data_main.txt", "r") as f:
     example_data = f.read()
 
 
@@ -38,7 +37,7 @@ def encode_user_data(user_data):
     user_data = user_data.split()
     user_data = [text2int[word] for word in user_data]
     return user_data
-with open("/workspaces/codespaces-blank/data_main.dat", "wb") as f:
+with open("data_main.dat", "wb") as f:
     pickle.dump({'t2i':text2int,'i2t':int2text,'dataset':dataset}, f)
 data = input("Enter your data: ")
 user_data = encode_user_data(data)

@@ -1,6 +1,6 @@
 import pickle
 import re
-with open("/workspaces/codespaces-blank/data_main.dat", "rb") as f:
+with open("/workspace/codespaces-blank/codespaces-blank/data_main.dat", "rb") as f:
     dataset = pickle.load(f)
 def clean_text(text):
     text = text.lower()
@@ -13,7 +13,7 @@ def clean_text(text):
     text = re.sub(r'[^a-z0-9\s]', ' ', text)
     text = re.sub(r'\s+', ' ', text)
     return text
-def complete_sentence(data):
+def complete_sentence(data):  
     set = dataset
     for i in data:
         for j in set:
@@ -33,7 +33,13 @@ def encode_user_data(user_data):
 text2int = dataset['t2i']
 int2text = dataset['i2t']
 dataset = dataset['dataset']
+
+text = clean_text(data)
+enocoded_text = encode_user_data(text)
+print(enocoded_text)
+"""
 data = input("Enter your data: ")
+
 user_data = encode_user_data(data)
 revals = []
 revals.extend(user_data)
@@ -48,4 +54,4 @@ for i in revals:
         print(int2text[i],end=" ")
 
 
-print("\n")
+print("\n")"""
